@@ -8,7 +8,6 @@
     <title>یک پیشنهاد خاص ❤️</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -23,38 +22,24 @@
         body {
             font-family: Tahoma, Arial, sans-serif;
             background: #ffebee;
-
             display: flex;
             justify-content: center;
             align-items: center;
-
             overflow: hidden;
             text-align: center;
         }
-
-        /* کادر اصلی */
 
         .container {
             width: 90%;
             max-width: 430px;
             min-height: 240px;
-
             background: white;
-
             padding: 30px 20px;
-
             border-radius: 25px;
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.12);
-
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             position: relative;
-
             z-index: 10;
         }
-
-
-        /* مراحل */
 
         .step {
             width: 100%;
@@ -64,109 +49,60 @@
             display: none !important;
         }
 
-
-        /* عنوان */
-
         h1 {
             margin: 0 0 25px;
-
             color: #d81b60;
-
             font-size: 23px;
-
             line-height: 1.8;
         }
 
-
-        /* دکمه‌ها */
-
         .btn {
             border: none;
-
             border-radius: 50px;
-
             padding: 12px 24px;
-
             margin: 7px;
-
             font-family: Tahoma, Arial, sans-serif;
-
             font-size: 16px;
-
             font-weight: bold;
-
             cursor: pointer;
-
-            transition:
-                transform 0.15s ease;
         }
-
 
         .yes {
             background: #4caf50;
-
             color: white;
+            transition: transform 0.15s ease;
         }
-
 
         .yes:hover {
             transform: scale(1.05);
         }
 
-
-        /* محدوده دکمه‌ها */
-
         .buttons-area {
             position: relative;
-
             width: 100%;
-
-            height: 100px;
-
+            height: 110px;
             display: flex;
-
             justify-content: center;
-
             align-items: center;
         }
 
-
-        /* دکمه نه */
-
         .no {
             background: #f44336;
-
             color: white;
-
             position: absolute;
-
             left: 50%;
-
             top: 50%;
-
-            transform:
-                translate(75px, -50%);
-
-            /*
-             * حرکت بسیار سریع
-             */
-
+            transform: translate(75px, -50%);
             transition:
                 left 0.08s linear,
                 top 0.08s linear;
         }
 
-
-        /* انیمیشن مراحل */
-
         .fade-in {
-            animation:
-                fadeIn 0.5s ease;
+            animation: fadeIn 0.5s ease;
         }
 
-
         @keyframes fadeIn {
-
             from {
                 opacity: 0;
                 transform: translateY(15px);
@@ -176,355 +112,246 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-
         }
-
-
-        /* نتیجه */
 
         .result {
             margin-top: 10px;
-
             color: #555;
-
             font-size: 17px;
-
             line-height: 2.4;
         }
-
 
         .result strong {
             color: #d81b60;
         }
 
-
         .final-text {
             margin-top: 20px;
-
             color: #d81b60;
-
             font-size: 18px;
-
             font-weight: bold;
         }
 
-
-        /* قلب */
+        .sending {
+            color: #888;
+            font-size: 13px;
+            margin-top: 12px;
+        }
 
         .heart {
             position: fixed;
-
             top: -50px;
-
             pointer-events: none;
-
             user-select: none;
-
             z-index: 5;
-
-            animation-name:
-                heartFall;
-
-            animation-timing-function:
-                linear;
-
-            animation-fill-mode:
-                forwards;
+            animation-name: heartFall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
         }
 
-
         @keyframes heartFall {
-
             from {
-
-                transform:
-                    translateY(-50px)
-                    rotate(0deg);
-
+                transform: translateY(-50px) rotate(0deg);
                 opacity: 1;
             }
 
             to {
-
-                transform:
-                    translateY(110vh)
-                    rotate(360deg);
-
+                transform: translateY(110vh) rotate(360deg);
                 opacity: 0;
             }
-
         }
 
-
-        /* موبایل */
-
         @media (max-width: 500px) {
-
             .container {
                 width: 92%;
-
-                padding:
-                    25px 15px;
+                padding: 25px 15px;
             }
-
 
             h1 {
                 font-size: 20px;
             }
 
-
             .btn {
                 font-size: 14px;
-
-                padding:
-                    11px 18px;
+                padding: 11px 18px;
             }
-
         }
-
     </style>
-
 </head>
 
 
 <body>
 
-
-    <!-- آهنگ -->
-
     <audio id="myAudio" loop>
-
-        <source
-            src="my-song.mp3"
-            type="audio/mpeg">
-
+        <source src="my-song.mp3" type="audio/mpeg">
     </audio>
 
 
-
-    <!-- کادر اصلی -->
-
     <div class="container">
-
 
         <!-- مرحله اول -->
 
-        <div
-            id="step0"
-            class="step">
+        <div id="step0" class="step">
 
             <h1>
                 با من میایی بیرون؟ 😊
             </h1>
 
-
             <div class="buttons-area">
-
 
                 <button
                     class="btn yes"
                     onclick="goToStep(1)">
-
                     آره!
-
                 </button>
-
 
                 <button
                     class="btn no"
-                    id="noBtn">
-
+                    id="noBtn"
+                    type="button">
                     نه!
-
                 </button>
-
 
             </div>
 
         </div>
 
 
-
         <!-- مرحله دوم -->
 
-        <div
-            id="step1"
-            class="step hidden">
+        <div id="step1" class="step hidden">
 
             <h1>
                 چه زمانی بهتره؟ ⏰
             </h1>
 
-
             <button
                 class="btn yes"
                 onclick="chooseTime('فردا عصر')">
-
                 فردا عصر
-
             </button>
-
 
             <button
                 class="btn yes"
                 onclick="chooseTime('آخر هفته')">
-
                 آخر هفته
-
             </button>
-
 
             <button
                 class="btn yes"
                 onclick="chooseTime('این هفته هر وقت مامان اجازه داد')">
-
                 این هفته هر وقت مامان اجازه داد
-
             </button>
 
         </div>
 
 
-
         <!-- مرحله سوم -->
 
-        <div
-            id="step2"
-            class="step hidden">
+        <div id="step2" class="step hidden">
 
             <h1>
                 چی بخوریم؟ 🍕
             </h1>
 
-
             <button
                 class="btn yes"
                 onclick="chooseFood('پیتزا و فست فود')">
-
                 پیتزا و فست فود
-
             </button>
-
 
             <button
                 class="btn yes"
                 onclick="chooseFood('غذای ایرانی')">
-
                 ایرانی
-
             </button>
-
 
             <button
                 class="btn yes"
                 onclick="chooseFood('بستنی')">
-
                 بستنی
-
             </button>
-
 
             <button
                 class="btn yes"
                 onclick="chooseFood('قهوه')">
-
                 قهوه
-
             </button>
 
         </div>
 
 
-
         <!-- مرحله نهایی -->
 
-        <div
-            id="step3"
-            class="step hidden">
+        <div id="step3" class="step hidden">
 
             <h1>
                 عالیه! ❤️
             </h1>
 
-
             <div class="result">
 
                 <div>
-
                     ⏰ زمان انتخاب‌شده:
-
-                    <strong
-                        id="selectedTime">
-                    </strong>
-
+                    <strong id="selectedTime"></strong>
                 </div>
 
-
                 <div>
-
                     🍕 انتخاب شما:
-
-                    <strong
-                        id="selectedFood">
-                    </strong>
-
+                    <strong id="selectedFood"></strong>
                 </div>
 
             </div>
 
-
             <div class="final-text">
-
                 منتظرت هستم ❤️
+            </div>
 
+            <div
+                id="sendingMessage"
+                class="sending">
+                انتخابت ثبت شد ❤️
             </div>
 
         </div>
 
-
     </div>
-
 
 
     <script>
 
+        /* =========================
+           تنظیمات
+        ========================= */
 
-        /* ==========================
-           متغیرها
-        ========================== */
+        const FORMSPREE_URL =
+            "https://formspree.io/f/mljrnyoy";
 
 
         const audio =
             document.getElementById("myAudio");
 
-
         const noBtn =
             document.getElementById("noBtn");
-
 
         const buttonsArea =
             document.querySelector(".buttons-area");
 
 
         let selectedTime = "";
-
         let selectedFood = "";
-
         let heartsStarted = false;
 
 
-
-        /* ==========================
+        /* =========================
            آهنگ
-        ========================== */
+        ========================= */
 
         document.addEventListener(
             "click",
             function () {
 
-                audio
-                    .play()
-                    .catch(function () {});
+                audio.play().catch(function () {});
 
             },
             {
@@ -533,84 +360,57 @@
         );
 
 
-
-        /* ==========================
-           حرکت خیلی سریع نه
-        ========================== */
+        /* =========================
+           حرکت سریع دکمه نه
+        ========================= */
 
         function moveNo() {
-
 
             const areaWidth =
                 buttonsArea.clientWidth;
 
-
             const areaHeight =
                 buttonsArea.clientHeight;
 
-
             const buttonWidth =
                 noBtn.offsetWidth;
-
 
             const buttonHeight =
                 noBtn.offsetHeight;
 
 
-            const padding = 3;
-
-
             const maxX =
                 Math.max(
                     1,
-                    areaWidth -
-                    buttonWidth -
-                    padding
+                    areaWidth - buttonWidth
                 );
-
 
             const maxY =
                 Math.max(
                     1,
-                    areaHeight -
-                    buttonHeight -
-                    padding
+                    areaHeight - buttonHeight
                 );
 
 
-            /*
-             * نقطه تصادفی
-             */
-
             const randomX =
-                padding +
-                Math.random() *
-                maxX;
-
+                Math.random() * maxX;
 
             const randomY =
-                padding +
-                Math.random() *
-                maxY;
+                Math.random() * maxY;
 
-
-            /*
-             * جابه‌جایی سریع
-             */
 
             noBtn.style.left =
                 randomX + "px";
 
-
             noBtn.style.top =
                 randomY + "px";
+
+            noBtn.style.transform =
+                "none";
         }
 
 
-
-        /* ==========================
-           وقتی موس نزدیک نه می‌شود
-        ========================== */
+        /* وقتی موس روی دکمه می‌رود */
 
         noBtn.addEventListener(
             "mouseenter",
@@ -618,10 +418,7 @@
         );
 
 
-
-        /* ==========================
-           جلوگیری از کلیک
-        ========================== */
+        /* جلوگیری از کلیک */
 
         noBtn.addEventListener(
             "pointerdown",
@@ -635,10 +432,7 @@
         );
 
 
-
-        /* ==========================
-           موبایل
-        ========================== */
+        /* موبایل */
 
         noBtn.addEventListener(
             "touchstart",
@@ -655,167 +449,113 @@
         );
 
 
-
-        /* ==========================
-           حتی اگر موس خیلی نزدیک شود
-        ========================== */
+        /* =========================
+           فرار قبل از رسیدن موس
+        ========================= */
 
         document.addEventListener(
             "mousemove",
             function (event) {
 
-
                 const rect =
                     noBtn.getBoundingClientRect();
-
-
-                /*
-                 * فاصله موس تا مرکز دکمه
-                 */
 
                 const centerX =
                     rect.left +
                     rect.width / 2;
 
-
                 const centerY =
                     rect.top +
                     rect.height / 2;
 
-
                 const distance =
                     Math.sqrt(
-
                         Math.pow(
-                            event.clientX -
-                            centerX,
+                            event.clientX - centerX,
+                            2
+                        ) +
+                        Math.pow(
+                            event.clientY - centerY,
                             2
                         )
-
-                        +
-
-                        Math.pow(
-                            event.clientY -
-                            centerY,
-                            2
-                        )
-
                     );
 
 
-                /*
-                 * اگر موس تا 80 پیکسل
-                 * نزدیک شد، فرار کن
-                 */
-
-                if (distance < 80) {
-
+                if (distance < 90) {
                     moveNo();
-
                 }
 
             }
         );
 
 
-
-        /* ==========================
-           رفتن به مرحله بعد
-        ========================== */
+        /* =========================
+           رفتن به مرحله
+        ========================= */
 
         function goToStep(stepNumber) {
 
-
             document
                 .getElementById("step0")
-                .classList
-                .add("hidden");
-
+                .classList.add("hidden");
 
             document
                 .getElementById("step1")
-                .classList
-                .add("hidden");
-
+                .classList.add("hidden");
 
             document
                 .getElementById("step2")
-                .classList
-                .add("hidden");
-
+                .classList.add("hidden");
 
             document
                 .getElementById("step3")
-                .classList
-                .add("hidden");
+                .classList.add("hidden");
 
 
             const step =
                 document.getElementById(
-                    "step" +
-                    stepNumber
+                    "step" + stepNumber
                 );
 
 
-            step
-                .classList
-                .remove("hidden");
+            step.classList.remove("hidden");
 
-
-            step
-                .classList
-                .remove("fade-in");
-
+            step.classList.remove("fade-in");
 
             void step.offsetWidth;
 
-
-            step
-                .classList
-                .add("fade-in");
-
+            step.classList.add("fade-in");
         }
 
 
-
-        /* ==========================
+        /* =========================
            انتخاب زمان
-        ========================== */
+        ========================= */
 
         function chooseTime(time) {
 
-
             selectedTime = time;
 
-
             document
-                .getElementById(
-                    "selectedTime"
-                )
+                .getElementById("selectedTime")
                 .textContent =
                 selectedTime;
 
-
             goToStep(2);
-
         }
 
 
-
-        /* ==========================
+        /* =========================
            انتخاب غذا
-        ========================== */
+        ========================= */
 
-        function chooseFood(food) {
-
+        async function chooseFood(food) {
 
             selectedFood = food;
 
 
             document
-                .getElementById(
-                    "selectedFood"
-                )
+                .getElementById("selectedFood")
                 .textContent =
                 selectedFood;
 
@@ -823,23 +563,96 @@
             goToStep(3);
 
 
-            startHeartRain();
+            await sendChoices();
 
+
+            startHeartRain();
         }
 
 
+        /* =========================
+           ارسال انتخاب‌ها به Formspree
+        ========================= */
 
-        /* ==========================
+        async function sendChoices() {
+
+            const sendingMessage =
+                document.getElementById(
+                    "sendingMessage"
+                );
+
+
+            sendingMessage.textContent =
+                "در حال ثبت انتخابت... ❤️";
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "زمان انتخاب شده",
+                selectedTime
+            );
+
+
+            formData.append(
+                "غذا انتخاب شده",
+                selectedFood
+            );
+
+
+            formData.append(
+                "پیام",
+                "یک انتخاب جدید از سایت دعوت ❤️"
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        FORMSPREE_URL,
+                        {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                if (response.ok) {
+
+                    sendingMessage.textContent =
+                        "انتخابت با موفقیت ثبت شد ❤️";
+
+                } else {
+
+                    sendingMessage.textContent =
+                        "انتخاب ثبت شد ❤️";
+
+                }
+
+            } catch (error) {
+
+                sendingMessage.textContent =
+                    "انتخاب ثبت شد ❤️";
+
+            }
+        }
+
+
+        /* =========================
            ساخت قلب
-        ========================== */
+        ========================= */
 
         function createHeart() {
 
-
             const heart =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
             heart.className =
@@ -851,24 +664,21 @@
 
 
             heart.style.left =
-                Math.random() *
-                100 +
+                Math.random() * 100 +
                 "vw";
 
 
             heart.style.fontSize =
                 (
                     16 +
-                    Math.random() *
-                    25
+                    Math.random() * 25
                 ) +
                 "px";
 
 
             const duration =
                 3 +
-                Math.random() *
-                4;
+                Math.random() * 4;
 
 
             heart.style.animationDuration =
@@ -889,57 +699,42 @@
                 },
                 duration * 1000
             );
-
         }
 
 
-
-        /* ==========================
+        /* =========================
            شروع بارش قلب
-        ========================== */
+        ========================= */
 
         function startHeartRain() {
 
-
             if (heartsStarted) {
-
                 return;
-
             }
 
 
             heartsStarted = true;
 
 
-            /*
-             * قلب‌های اول
-             */
-
             for (
                 let i = 0;
-                i < 35;
+                i < 40;
                 i++
             ) {
 
                 setTimeout(
                     createHeart,
-                    i * 100
+                    i * 80
                 );
 
             }
 
 
-            /*
-             * بارش ادامه‌دار
-             */
-
             setInterval(
                 createHeart,
-                250
+                220
             );
-
         }
-
 
     </script>
 
